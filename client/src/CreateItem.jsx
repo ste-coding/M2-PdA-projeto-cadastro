@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './App.css';
 
 function CreateItem() {
     const [description, setDescription] = useState('');
@@ -20,7 +21,7 @@ function CreateItem() {
     }
 
     return (
-        <div className="d-flex vh-100 bg-primary justify-content-center align-items-center">
+        <div className="app-background d-flex flex-column vh-100 justify-content-center align-items-center">
             <div className="w-50 bg-white rounded p-3">
                 <form onSubmit={Submit}>
                     <h2>Add Item</h2>
@@ -36,7 +37,7 @@ function CreateItem() {
                         <label htmlFor="">Condition</label>
                         <input type="text" placeholder="enter condition of use" className="form-control" onChange={(e) => setCondition(e.target.value)} />
                     </div>
-                    <button type="submit" className="btn btn-success">Submit</button>
+                    <button type="submit" className="btn submitButton">Submit</button>                
                 </form>
             </div>
         </div>

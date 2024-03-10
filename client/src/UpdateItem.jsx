@@ -32,7 +32,7 @@ function UpdateItem () {
     }
 
     return(
-        <div className="d-flex vh-100 bg-primary justify-content-center align-items-center">
+        <div className="app-background d-flex flex-column vh-100 justify-content-center align-items-center">
             <div className="w-50 bg-white rounded p-3">
                 <form onSubmit={Update}>
                     <h2>Update Item</h2>
@@ -48,9 +48,8 @@ function UpdateItem () {
                         <label htmlFor="">Condition</label>
                         <input type="condition" placeholder="enter condition of use" className="form-control" value={condition} onChange={(e) => setCondition(e.target.value)}/>
                     </div>
-                    <button className="btn btn-success">Update</button>
+                    <button className="btn submitButton">Update</button>
                 </form>
-
             </div>
         </div>
     )
