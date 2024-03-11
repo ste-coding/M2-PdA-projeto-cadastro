@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const ItemModel = require('./models/Items.js')
-require('dotenv').config()
+require('dotenv').config();
 
 const app = express()
 app.use(cors())
