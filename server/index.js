@@ -2,12 +2,13 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const ItemModel = require('./models/Items.js')
+require('dotenv').config()
 
 const app = express()
 app.use(cors())
 app.use(express.json())
 
-mongoose.connect("mongodb://127.0.0.1:27017/cadastro")
+mongoose.connect(process.env.MONGO_URL)
 
 app.get('/', (req, res) => {
     ItemModel.find({})
