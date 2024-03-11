@@ -2,9 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { FaPlus, FaEdit, FaRegTrashAlt } from "react-icons/fa";
-import logo from './assets/logo-thriftopia.png'; // Importe a imagem aqui
-
+import { FaPlusCircle , FaPen , FaMinusCircle  } from "react-icons/fa";
+import logo from './assets/logo-thriftopia.png';
 function Items() {
     const [items, setItems] = useState([])
 
@@ -32,7 +31,7 @@ function Items() {
                 <h1>Thriftopia: magia em cada peça</h1>
                 <h4>Cadastre suas peças para doação</h4>
                 <div className="buttonContainer">
-                    <Link to="/create" className='btn addButton'><FaPlus className="buttonIcon" /></Link>
+                    <Link to="/create" className='btn addButton'><FaPlusCircle  className="buttonIcon" /></Link>
                 </div>
                 {items.map((item) => (
                     <div key={item._id} className="card mb-3">
@@ -41,8 +40,8 @@ function Items() {
                             <p className="card-text"><strong>Size:</strong> {item.size}</p>
                             <p className="card-text"><strong>Condition of use:</strong> {item.condition}</p>
                             <div className="d-flex justify-content-end">
-                                <Link to={`/update/${item._id}`} className='btn editButton'><FaEdit className="buttonIcon" /></Link>
-                                <button className='btn deleteButton' onClick={() => handleDelete(item._id)}><FaRegTrashAlt className="buttonIcon" /></button>
+                                <Link to={`/update/${item._id}`} className='btn editButton'><FaPen className="buttonIcon" /></Link>
+                                <button className='btn deleteButton' onClick={() => handleDelete(item._id)}><FaMinusCircle className="buttonIcon" /></button>
                             </div>
                         </div>
                     </div>

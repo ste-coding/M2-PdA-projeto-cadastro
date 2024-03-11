@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
+import { FaPaperPlane } from "react-icons/fa";
 
 function CreateItem() {
     const [description, setDescription] = useState('');
@@ -37,7 +38,7 @@ function CreateItem() {
                         <label htmlFor="">Condition</label>
                         <input type="text" placeholder="enter condition of use" className="form-control" onChange={(e) => setCondition(e.target.value)} />
                     </div>
-                    <button type="submit" className="btn submitButton">Submit</button>                
+                    <button type="submit" className="btn submitButton"><FaPaperPlane /></button>
                 </form>
             </div>
         </div>

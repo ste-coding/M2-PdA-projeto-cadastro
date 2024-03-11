@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { FaPaperPlane } from "react-icons/fa";
 
 function UpdateItem () {
     const {id} = useParams()
@@ -48,7 +49,7 @@ function UpdateItem () {
                         <label htmlFor="">Condition</label>
                         <input type="condition" placeholder="enter condition of use" className="form-control" value={condition} onChange={(e) => setCondition(e.target.value)}/>
                     </div>
-                    <button className="btn submitButton">Update</button>
+                    <button className="btn updateButton"><FaPaperPlane /></button>
                 </form>
             </div>
         </div>
