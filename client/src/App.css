@@ -64,6 +64,12 @@ h4 {
     font-size: 20px;
 }
 
+.footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 2vh;
+}
+
 @media screen and (max-width: 600px) {
     h1 {
         font-size: 4vw;
