@@ -25,8 +25,8 @@ Thriftopia é uma plataforma para doações de roupas e acessórios, permitindo 
 3. Configure o MongoDB Atlas para armazenar os dados do aplicativo.
 4. No arquivo .env do diretório server, adicione a URL de conexão do MongoDB Atlas seguindo o formato: MONGO_URL=sua_url_de_conexao.
 5. Execute o servidor backend usando o comando npm start no diretório server.
-6. Inicie o frontend executando o comando npm start no diretório raiz do projeto.
-7. Abra o navegador e acesse http://localhost:3000 para usar o aplicativo.
+6. Inicie o frontend executando o comando npm run dev no diretório client do projeto.
+7. Abra o navegador e acesse o localhost para utilizar a página.
 
 Agora você pode cadastrar, atualizar, excluir e visualizar peças cadastradas para doação na plataforma Thriftopia.
 
