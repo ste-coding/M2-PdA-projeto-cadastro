@@ -36,9 +36,9 @@ function Items() {
                 {items.map((item) => (
                     <div key={item._id} className="card mb-3">
                         <div className="card-body">
-                            <h5 className="card-title"><strong>Description:</strong> {item.description}</h5>
-                            <p className="card-text"><strong>Size:</strong> {item.size}</p>
-                            <p className="card-text"><strong>Condition of use:</strong> {item.condition}</p>
+                            <h5 className="card-title"><strong>Descrição:</strong> {item.description}</h5>
+                            <p className="card-text"><strong>Tamanho:</strong> {item.size}</p>
+                            <p className="card-text"><strong>Estado da peça:</strong> {item.condition}</p>
                             <div className="d-flex justify-content-end">
                                 <Link to={`/update/${item._id}`} className='btn editButton'><FaPen className="buttonIcon" /></Link>
                                 <button className='btn deleteButton' onClick={() => handleDelete(item._id)}><FaMinusCircle className="buttonIcon" /></button>
