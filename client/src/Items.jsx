@@ -10,7 +10,8 @@ function Items() {
     useEffect(() => {
         axios.get('http://localhost:3001')
             .then(result => setItems(result.data))
-            .catch(err => console.log(err))
+            .catch(err => console.log(err));
+
     }, [])
 
     const handleDelete = (id) => {
@@ -24,7 +25,7 @@ function Items() {
 
     return (
         <div className="app-background d-flex flex-column vh-100 justify-content-center align-items-center">
-            <div className="w-50 bg-white rounded p-3">
+            <div className="items-container">
                 <div className="logo-container">
                     <img src={logo} alt="Thriftopia Logo" className="logo" />
                 </div>
@@ -33,19 +34,22 @@ function Items() {
                 <div className="buttonContainer">
                     <Link to="/create" className='btn addButton'><FaPlusCircle  className="buttonIcon" /></Link>
                 </div>
-                {items.map((item) => (
-                    <div key={item._id} className="card mb-3">
-                        <div className="card-body">
-                            <h5 className="card-title"><strong>Descrição:</strong> {item.description}</h5>
-                            <p className="card-text"><strong>Tamanho:</strong> {item.size}</p>
-                            <p className="card-text"><strong>Estado da peça:</strong> {item.condition}</p>
-                            <div className="d-flex justify-content-end">
-                                <Link to={`/update/${item._id}`} className='btn editButton'><FaPen className="buttonIcon" /></Link>
-                                <button className='btn deleteButton' onClick={() => handleDelete(item._id)}><FaMinusCircle className="buttonIcon" /></button>
+                <div className="cards-container">
+                    {items.map((item) => (
+                        <div key={item._id} className="card mb-3">
+                            <div className="card-body">
+                                <img className="card-image" src={`http://localhost:3001/${item.imageUrl}`} alt="Item" style={{ width: '100%', height: 'auto' }} />
+                                <h5 className="card-title"><strong>Descrição:</strong> {item.description}</h5>
+                                <p className="card-text"><strong>Tamanho:</strong> {item.size}</p>
+                                <p className="card-text"><strong>Estado da peça:</strong> {item.condition}</p>
+                                <div className="d-flex justify-content-end">
+                                    <Link to={`/update/${item._id}`} className='btn editButton'><FaPen className="buttonIcon" /></Link>
+                                    <button className='btn deleteButton' onClick={() => handleDelete(item._id)}><FaMinusCircle className="buttonIcon" /></button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
 

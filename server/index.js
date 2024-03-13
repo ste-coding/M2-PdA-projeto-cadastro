@@ -4,6 +4,20 @@ const cors = require('cors')
 const ItemModel = require('./models/Items.js')
 require('dotenv').config();
 
+const multer = require('multer');
+const path = require('path');
+
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, 'uploads/')
+    },
+    filename: function(req, file, cb) {
+        cb(null, Date.now() + path.extname(file.originalname))
+    }
+})
+
+const upload = multer({ storage: storage });
+
 const app = express()
 app.use(cors())
 app.use(express.json())
@@ -40,9 +54,12 @@ app.delete('/deleteItem/:id', (req, res) => {
     .catch(err => res.json(err));
 });
 
+app.use('/uploads', express.static('uploads'));
 
-app.post("/createItem", (req,res) => {
-    ItemModel.create(req.body)
+app.post("/createItem", upload.single('image'), (req,res) => {
+    const { description, size, condition } = req.body;
+    const imageUrl = req.file ? req.file.path : ''; // Adiciona o caminho da imagem
+    ItemModel.create({ description, size, condition, imageUrl })
     .then(items => res.json(items))
     .catch(err => res.json(err))
 });

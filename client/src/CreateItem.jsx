@@ -8,24 +8,46 @@ function CreateItem() {
     const [description, setDescription] = useState('');
     const [size, setSize] = useState('');
     const [condition, setCondition] = useState('');
+    const [image, setImage] = useState(null);
     const navigate = useNavigate()
+
+    const handleFileChange = (event) => {
+        setImage(event.target.files[0]);
+    };
 
     const Submit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3001/createItem", { description, size, condition })
-            .then(result => {
-                console.log(result)
-                navigate("/")
-            })
-            
-            .catch(err => console.log(err))
-    }
+
+        const formData = new FormData();
+        formData.append('description', description);
+        formData.append('size', size);
+        formData.append('condition', condition);
+        formData.append('image', image);
+
+        axios.post("http://localhost:3001/createItem", formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    })
+
+    .then(result => {
+        console.log(result)
+        navigate("/")
+    })
+    .catch(err => console.log(err));
+};
 
     return (
         <div className="app-background d-flex flex-column vh-100 justify-content-center align-items-center">
             <div className="w-50 bg-white rounded p-3">
                 <form onSubmit={Submit}>
                     <h2>Cadastrar Peça</h2>
+
+                    <div className="mb-2">
+                        <label htmlFor="image">Imagem da Peça</label>
+                        <input type="file" className="form-control" onChange={(e) => setImage(e.target.files[0])} />
+                    </div>
+                    
                     <div className="mb-2">
                         <label htmlFor="">Descrição</label>
                         <input type="text" placeholder="blusa, calça, sapato..." className="form-control" onChange={(e) => setDescription(e.target.value)} />
