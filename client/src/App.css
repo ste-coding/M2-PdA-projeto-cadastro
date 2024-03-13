@@ -6,12 +6,12 @@ body, html {
 }
 
 .app-background {
-    min-height: 100vh; /* Garantir que tenha no mínimo a altura da tela */
+    min-height: 100vh;
     display: flex;
-    flex-direction: column; /* Organiza os filhos em coluna */
-    justify-content: flex-start; /* Alinha ao início, permitindo expansão para baixo */
-    align-items: center; /* Centraliza horizontalmente */
-    overflow: auto; /* Previne rolagem desnecessária no nível do app-background */
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center; 
+    overflow: auto;
 }
 
 .items-container{
@@ -23,8 +23,6 @@ body, html {
     min-height: 100vh;
     width: 100%;
     max-width: 1200px;
-    
-    
 }
 
 
@@ -42,19 +40,37 @@ img {
 }
 
 .card {
-    width: calc(50% - 10px);
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
 }
 
 .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;    
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-content: space-between;
+    align-items: stretch;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    gap: 20px;
+    padding: 20px;
     width: 100%;
+    max-width: 1200px; 
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 15px;
 }
 
 .card-title {
@@ -88,27 +104,39 @@ h4 {
 
 .footer {
     width: 100%;
-    background-color: white; /* Fundo branco */
-    color: #ff69b4; /* Fonte cor de rosa */
+    background-color: white;
+    color: #ff69b4;
     text-align: center;
-    padding: 10px 0; /* Padding reduzido */
+    padding: 10px 0;
     font-size: 14px;
     position: fixed;
     bottom: 0;
 }
 
+@media (max-width: 1024px) {
+    .cards-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .card {
-        width: 100%; /* Ajusta para uma coluna de cards em dispositivos menores */
+        width: 100%;
     }
 
     .items-container, .logo-container img {
-        width: 90%; /* Ajusta a largura para dispositivos menores */
+        width: 90%;
+    }
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 480px) {
     .items-container, .logo-container img {
-        width: 95%; /* Ajusta a largura para dispositivos muito pequenos */
+        width: 95%;
+    }
+    .cards-container {
+        grid-template-columns: 1fr;
     }
 }
