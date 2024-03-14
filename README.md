@@ -6,10 +6,11 @@ Thriftopia é uma plataforma para doações de roupas e acessórios, permitindo 
 
 ## Funcionalidades Principais
 
-- Cadastro de peças para doação.
-- Atualização de informações das peças.
-- Exclusão de peças cadastradas.
-- Visualização das peças cadastradas para doação.
+- Cadastro de Peças: Facilidade para adicionar itens de roupas e acessórios à plataforma.
+- Atualização de Informações: Atualize facilmente os detalhes dos itens para manter a precisão das informações.
+- Exclusão de Peças: Possibilidade de remover itens que já foram doados ou não estão mais disponíveis.
+- Visualização de Itens: Explore as peças disponíveis para doação, com detalhes claros e fotos.
+- Sistema de Filtros Avançados: Encontre exatamente o que procura com filtros por localização, descrição ou tamanho, tornando a busca mais eficiente e direcionada
 
 ## Tecnologias Utilizadas
 
