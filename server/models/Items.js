@@ -3,7 +3,8 @@ const ItemSchema = new mongoose.Schema({
     description: String,
     size: String,
     condition: String,
-    imageUrl: String
+    imageUrl: String,
+    location: String
 })
 
 const ItemModel = mongoose.model("items", ItemSchema)

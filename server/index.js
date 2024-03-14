@@ -42,7 +42,9 @@ app.put('/updateItem/:id', (req, res) => {
     ItemModel.findByIdAndUpdate({_id:id}, {
         description: req.body.description, 
         size: req.body.size, 
-        condition: req.body.condition})
+        condition: req.body.condition,
+        location: req.body.location
+    })
     .then(items => res.json(items))
     .catch(err => res.json(err));
 });
@@ -57,9 +59,9 @@ app.delete('/deleteItem/:id', (req, res) => {
 app.use('/uploads', express.static('uploads'));
 
 app.post("/createItem", upload.single('image'), (req,res) => {
-    const { description, size, condition } = req.body;
-    const imageUrl = req.file ? req.file.path : ''; // Adiciona o caminho da imagem
-    ItemModel.create({ description, size, condition, imageUrl })
+    const { description, size, condition, location } = req.body;
+    const imageUrl = req.file ? req.file.path : '';
+    ItemModel.create({ description, size, condition, imageUrl, location })
     .then(items => res.json(items))
     .catch(err => res.json(err))
 });
