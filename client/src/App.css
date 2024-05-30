@@ -199,8 +199,8 @@ body, html, .main-container{
 }
 
 .card-location {
-    font-size: 0.8rem; /* Tamanho menor para a fonte */
-    color: grey; /* Cor cinza para o texto */
+    font-size: 0.8rem; 
+    color: grey;
     position: absolute;
     bottom: 10px;
     left: 10px;
